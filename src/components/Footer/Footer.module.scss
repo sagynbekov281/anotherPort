@@ -1,0 +1,45 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  border-top: 1px solid $gray-800;
+  padding: $space-md 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+    gap: $space-sm;
+    text-align: center;
+  }
+}
+
+.name {
+  font-family: $font-serif;
+  font-size: 1rem;
+  color: $gray-300;
+}
+
+.copy {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: $gray-600;
+}
+
+.toTop {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $gray-500;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $white;
+  }
+}

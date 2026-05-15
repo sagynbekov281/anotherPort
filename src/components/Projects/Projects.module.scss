@@ -1,0 +1,129 @@
+@use '../../styles/variables' as *;
+
+.projects {
+  border-top: 1px solid $gray-800;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: $space-lg;
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-sm;
+  }
+}
+
+.allLink {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-400;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $gray-800;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 3rem 1fr 2rem;
+  gap: $space-md;
+  align-items: start;
+  padding: $space-md 0;
+  border-bottom: 1px solid $gray-800;
+  transition: background $transition-fast;
+
+  &:hover {
+    .cardTitle {
+      color: $white;
+    }
+    .cardLink {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 2rem 1fr 1.5rem;
+    gap: $space-sm;
+  }
+}
+
+.cardNumber {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $gray-600;
+  padding-top: 0.3rem;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.cardTitle {
+  font-family: $font-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $gray-200;
+  transition: color $transition-fast;
+}
+
+.cardYear {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: $gray-600;
+}
+
+.cardDesc {
+  font-family: $font-mono;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: $gray-500;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-500;
+  border: 1px solid $gray-800;
+  padding: 0.2rem 0.6rem;
+}
+
+.cardLink {
+  font-size: 1.1rem;
+  color: $white;
+  opacity: 0.3;
+  padding-top: 0.2rem;
+  transition: opacity $transition-fast;
+}

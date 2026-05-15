@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+
+.contact {
+  border-top: 1px solid $gray-800;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+  align-items: start;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+}
+
+.title em {
+  font-style: italic;
+  color: $gray-400;
+}
+
+.sub {
+  margin-top: $space-md;
+  font-family: $font-mono;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: $gray-500;
+  line-height: 1.8;
+  max-width: 340px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+  padding-top: $space-sm;
+}
+
+.emailLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: $font-serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: $white;
+  transition: opacity $transition-fast;
+  border-bottom: 1px solid $gray-800;
+  padding-bottom: $space-sm;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.emailLabel {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gray-500;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-400;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid $gray-800;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.linkIcon {
+  opacity: 0.4;
+}

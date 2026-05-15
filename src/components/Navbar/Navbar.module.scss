@@ -1,0 +1,136 @@
+@use '../../styles/variables' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 0;
+  transition: background $transition-med, padding $transition-med, border-color $transition-med;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(12px);
+    border-color: $gray-800;
+    padding: 1rem 0;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: $font-serif;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.logoDot {
+  color: $gray-400;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+
+  @media (max-width: $bp-md) {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background: $black;
+    justify-content: center;
+    gap: $space-lg;
+    z-index: 99;
+
+    &.open {
+      display: flex;
+    }
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-300;
+  transition: color $transition-fast;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: $white;
+    transition: width $transition-med;
+  }
+
+  &:hover {
+    color: $white;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $bp-md) {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+.navIndex {
+  font-size: 0.6rem;
+  color: $gray-500;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 100;
+  padding: 4px;
+
+  @media (max-width: $bp-md) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: $white;
+    transition: transform $transition-med, opacity $transition-med;
+    transform-origin: center;
+  }
+
+  &.active {
+    span:first-child {
+      transform: translateY(3.5px) rotate(45deg);
+    }
+    span:last-child {
+      transform: translateY(-3.5px) rotate(-45deg);
+    }
+  }
+}

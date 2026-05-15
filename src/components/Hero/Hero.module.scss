@@ -1,0 +1,249 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 6rem;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: $space-lg;
+  width: 100%;
+
+  @media (max-width: $bp-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.content {
+  max-width: 640px;
+}
+
+.greeting {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gray-400;
+  margin-bottom: $space-sm;
+  animation: fadeUp 0.6s $transition-slow both;
+}
+
+.line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: $gray-500;
+}
+
+.name {
+  font-family: $font-serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $white;
+  margin-bottom: $space-sm;
+  animation: fadeUp 0.6s $transition-slow 0.1s both;
+
+  em {
+    font-style: italic;
+    color: $gray-300;
+  }
+}
+
+.role {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $gray-400;
+  margin-bottom: $space-md;
+  animation: fadeUp 0.6s $transition-slow 0.2s both;
+}
+
+.tagline {
+  font-family: $font-mono;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: $gray-400;
+  line-height: 1.8;
+  margin-bottom: $space-lg;
+  animation: fadeUp 0.6s $transition-slow 0.3s both;
+}
+
+.actions {
+  display: flex;
+  gap: $space-sm;
+  animation: fadeUp 0.6s $transition-slow 0.4s both;
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+  }
+}
+
+.btnPrimary {
+  padding: 0.9rem 2rem;
+  background: $white;
+  color: $black;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background $transition-fast, color $transition-fast;
+
+  &:hover {
+    background: $gray-200;
+  }
+}
+
+.btnSecondary {
+  padding: 0.9rem 2rem;
+  border: 1px solid $gray-700;
+  color: $gray-300;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: border-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    border-color: $gray-400;
+    color: $white;
+  }
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $space-md;
+  padding-bottom: $space-sm;
+  animation: fadeIn 1s ease 0.6s both;
+
+  @media (max-width: $bp-md) {
+    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $gray-400;
+  border: 1px solid $gray-800;
+  padding: 0.4rem 0.8rem;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  background: #6ee7b7;
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media (max-width: $bp-md) {
+    align-items: flex-start;
+  }
+}
+
+.statNum {
+  font-family: $font-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: $white;
+}
+
+.statLabel {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $gray-500;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background: $gray-800;
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-mono;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $gray-600;
+  animation: fadeIn 1s ease 1s both;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, $gray-600, transparent);
+  animation: scrollAnim 1.5s ease infinite;
+}
+
+@keyframes scrollAnim {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: -1;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
